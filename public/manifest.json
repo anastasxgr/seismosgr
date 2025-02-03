@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Seismosgr",
+  "version": "1.0.1",
+  "description": "View latest earthquakes in Greece from website seismos.gr",
+  "author": "Alexandros Anastasiadis",
+
+  "action": {
+    "default_popup": "./index.html",
+    "default_icon": "./icons/32.png"
+  },
+
+  "icons": {
+    "24": "./icons/24.png",
+    "32": "./icons/32.png",
+    "64": "./icons/64.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "seismosgr-plugin@alexanasta.gr",
+      "strict_min_version": "58.0"
+    }
+  }
+}

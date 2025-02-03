@@ -1,0 +1,442 @@
+:root {
+  --colorMaster: #c20a19;
+  --colorSecond: #ffec50;
+  --headerBg: #221f6d;
+
+  --radiusLvl: 0.45rem;
+
+  /* mag levels */
+
+  --mag1: #88ffff;
+  --mag2: #7df894;
+  --mag3: #ffff00;
+  --mag4: #ffdd00;
+  --mag5: #ff0000;
+  --mag6: #880000;
+  /* god help us */
+  --mag7: #b7005f;
+  /* god help us */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  width: 450px;
+  max-width: 490px;
+  min-height: 100vh;
+  font-family: "Sofia Sans Semi Condensed", serif;
+  background-color: #e6e6e6;
+  font-weight: 400;
+}
+
+html {
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+
+.mt-2 {
+  margin-top: 1.2rem;
+}
+
+.mt-3 {
+  margin-top: 1.3rem;
+}
+
+.mt-4 {
+  margin-top: 1.4rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.gap1 {
+  gap: 1.1rem;
+}
+
+.gap2 {
+  gap: 1.2rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* HEADER ELEMENTS */
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: var(--headerBg);
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  z-index: 22;
+}
+
+.message {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 80px;
+  display: flex;
+  font-size: 0.9rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.message[data-type="error"] {
+  background-color: var(--colorMaster);
+  color: #fff;
+}
+
+.message[data-type="success"] {
+  background-color: rgb(45, 164, 45);
+  color: #fff;
+}
+
+.message[data-type="info"] {
+  background-color: var(--colorSecond);
+  color: #1f1f1f;
+}
+
+.header .logo {
+  background-image: url(./assets/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 240px;
+  height: 70px;
+  margin-top: 1.4rem;
+  position: absolute;
+  left: 2rem;
+}
+
+.header .buttons {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 5%;
+  gap: 0.5rem;
+}
+
+.header .btn {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 50%;
+  color: #0a0a0a;
+  display: flex;
+  font-size: 1.4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header .btn:hover {
+  background-color: var(--colorSecond);
+  color: var(--headerBg);
+}
+
+.quakeslist {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-auto-rows: max-content;
+  place-items: center;
+  gap: 10px;
+  overflow: scroll;
+  position: absolute;
+  top: 70px;
+}
+
+/**
+    SINGLE QUAKE ITEM ROW 
+*/
+
+.item {
+  width: 95%;
+  height: 100px;
+  background-color: #fff;
+  border-radius: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.item:last-of-type {
+  margin-bottom: 70px;
+}
+
+.details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.item .title {
+  position: absolute;
+  top: 0;
+  background-color: #313583;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  width: 100%;
+  height: 25px;
+  font-size: 0.8rem;
+  border-top-left-radius: var(--radiusLvl);
+  border-top-right-radius: var(--radiusLvl);
+}
+
+.before {
+  color: var(--headerBg);
+  opacity: 0.6;
+}
+
+.item .magn {
+  margin-top: 0.5rem;
+}
+
+.item:first-of-type {
+  margin-top: 60px;
+}
+
+.item:last-of-type {
+  margin-bottom: 60px;
+}
+
+.item .details {
+  max-width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item .date span:first-of-type {
+  font-weight: 800;
+  margin-right: 0.34rem;
+}
+
+.item .time span:first-of-type {
+  font-weight: 800;
+  margin-right: 0.34rem;
+}
+
+.item .quakeinfo {
+  color: var(--headerBg);
+  font-size: 2.5rem;
+  position: absolute;
+  top: 40%;
+  bottom:40%;
+opacity: 0.6;
+  right: 2rem;
+}
+
+/**
+    Original magnitudes color classes
+      from https://www.seismos.gr
+*/
+
+.magn[data-mag="1"] {
+  background: var(--mag1);
+  box-shadow: 0 0 0 0 var(--mag1);
+}
+
+.magn[data-mag="1"]::before,
+.magn[data-mag="1"]::after {
+  background: var(--mag1);
+  box-shadow: 0 0 0 0 var(--mag1);
+}
+
+.magn[data-mag="2"] {
+  background: var(--mag2);
+  box-shadow: 0 0 0 0 var(--mag2);
+}
+
+.magn[data-mag="2"]::before,
+.magn[data-mag="2"]::after {
+  background: var(--mag2);
+  box-shadow: 0 0 0 0 var(--mag2);
+}
+
+.magn[data-mag="3"] {
+  background: var(--mag3);
+  box-shadow: 0 0 0 0 var(--mag3);
+}
+
+.magn[data-mag="3"]::before,
+.magn[data-mag="3"]::after {
+  background: var(--mag3);
+  box-shadow: 0 0 0 0 var(--mag3);
+}
+
+.magn[data-mag="4"] {
+  background: var(--mag4);
+  box-shadow: 0 0 0 0 var(--mag4);
+}
+
+.magn[data-mag="4"]::before,
+.magn[data-mag="4"]::after {
+  background: var(--mag4);
+  box-shadow: 0 0 0 0 var(--mag4);
+}
+
+.magn[data-mag="5"] {
+  background: var(--mag5);
+  box-shadow: 0 0 0 0 var(--mag5);
+}
+
+.magn[data-mag="5"]::before,
+.magn[data-mag="5"]::after {
+  background: var(--mag5);
+  box-shadow: 0 0 0 0 var(--mag5);
+}
+
+.magn[data-mag="6"] {
+  background: var(--mag6);
+  box-shadow: 0 0 0 0 var(--mag6);
+}
+
+.magn[data-mag="6"]::before,
+.magn[data-mag="6"]::after {
+  background: var(--mag6);
+  box-shadow: 0 0 0 0 var(--mag6);
+}
+
+.magn[data-mag="7"] {
+  background: var(--mag7);
+  box-shadow: 0 0 0 0 var(--mag7);
+}
+
+.magn[data-mag="6"]::before,
+.magn[data-mag="6"]::after {
+  background: var(--mag7);
+  box-shadow: 0 0 0 0 var(--mag7);
+}
+
+.magn {
+  width: 30px;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 5%;
+  transform: translate(-5%, -50%);
+  border-radius: 50%;
+  animation: l2 1.8s infinite linear;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.magn:before,
+.magn:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  animation: inherit;
+  animation-delay: -0.5s;
+}
+
+.magn:after {
+  animation-delay: -1s;
+}
+
+@keyframes l2 {
+  100% {
+    box-shadow: 0 0 0 20px #0000;
+  }
+}
+
+.level {
+  color: rgb(0, 0, 0);
+  z-index: 2;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.loading::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.loaging {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  --b: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1px;
+  background: conic-gradient(#0000 10%, var(--headerBg)) content-box;
+  -webkit-mask: repeating-conic-gradient(#0000 0deg,
+      #000 1deg 20deg,
+      #0000 21deg 36deg),
+    radial-gradient(farthest-side,
+      #0000 calc(100% - var(--b) - 1px),
+      #000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: l4 1s infinite steps(10);
+  z-index: 999999;
+}
+
+@keyframes l4 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
