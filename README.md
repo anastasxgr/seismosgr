@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Περιγραφή
+Ένα πρόσθετο για Firefox που φορτώνει τους τελευταίους σεισμούς της Ελλάδας μέσω web-scraper γραμένο σε PHP.
+Είναι μια δωρεάν σεινεισφορά για το έργο **[seismos.gr](url)** Το λογότυπο και τα χρώματα ανήκουν αποκλειστικά
+στην επίσημη ιστοσελίδα του έργου.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Εγκατάσταση του προσθέτου
 
-## Expanding the ESLint configuration
+![Blogger](https://img.shields.io/badge/SEISMOSGR-0078d7?style=for-the-badge&logo=firefox&logoColor=white)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## 🆕 Changelog
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-  ⏺ Φορτώνει τους τελευταίους 150 σεισμούς
+-  🔁 Ενημερώνει την λίστα με το ποιο πρόσφατο state
+-  ℹ️ Εμφανίζονται βασικές πληροφορίες των σεισμών
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Μελλοντικές αλλαγές
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [ ]  Ειδοποιήσεις και ενημερώσεις
+- [ ]  Φιλτράρισμα με βάση την ένταση του σεισμού
+- [ ]  Αλλαγή σε σκοτεινή λειτουργία
+- [ ]  Εμφάνιση περισότερων πηροφοριών
+ 
+## 🛠 Διορθώσεις και βελτιώσεις
+- 🔹 Το αρχικό state μπορεί να αποθηκέυεται στο localStorage για γρηγορότερη φόρτωση.
+- 🔹 Μεταφορά μεθόδων εντώς των Reducers για ποιο άμεση εκτέλεση.
+
+## 📥 Εκτέλεση & δοκιμή
+
+1. Κλωνοποίηση του αποθετηρίου:
+   ```sh
+   git clone https://github.com/anastasxgr/seismosgr.git
+   ```
+
+2. Μετάβαση στον φάκελο του project:
+   ```sh
+    cd seismosgr
+   ```
+
+2. Εγκατάσταση τοπικά:
+   ```sh
+    npm install
+   ```
+
+3. Εγκατάσταση για production:
+    ```sh
+     npm run build
+     ```
+
+### 👁‍🗨 Δοκιμάστε τις αλλαγές σας στον Firefox
+
+1.  Ανοίξτε τον Browser και γράψτε στην μπάρα διευθύνσεων **about:debugging**
+2.   Στην αριστερή πλευρά επιλέξτε αυτός ο Firefox
+3.  Πατήστε το κουμπί φορτώσε ενα προσωρινό πρόσθετο
+4.  Ανοίξτε τον φάκελο **_dist_** που δημιουργήθηκε με το **npm run build**
+5.  Φορτώστε το αρχείο manifest.json
+
+
+
+
+
+
